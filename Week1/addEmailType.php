@@ -33,6 +33,7 @@ $dbConfig = array(
         "DB_PASSWORD"=>''
         );
 $pdo = new DB($dbConfig);
+
 $db = $pdo->getDB();
 /*
  * we utilize our classes to have less code on the page
