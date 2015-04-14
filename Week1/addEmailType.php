@@ -15,6 +15,7 @@
          */
 $util = new Util();
 $validator = new Validator();
+$emailTypeDB = new emailTypeDB();
 /*
  * When dealing with forms always collect the data before trying to validate
  * 
@@ -53,11 +54,7 @@ if ( $util->isPostRequest() ) {
         }
     } else {
         //if no errors, save to to database.
-        $stmt = $db->prepare("INSERT INTO emailtype SET emailtype = :emailtype");  
-        $values = array(":emailtype"=>$emailType);
-        if ( $stmt->execute($values) && $stmt->rowCount() > 0 ) {
-            echo 'Email type added';
-        }       
+        $emailTypeDB->saveEmailTypeDB($db, $emailType);   
     }
     
     
