@@ -4,6 +4,10 @@ Myself
 2. Project Idea
 Video game library that uses CRUD for all its functions
 as well as a login.
+I should be able to add video games to my collection.
+I should be able to update information on video games.
+I should be able to delete games from my video game collection.
+I should be able to view my video game collection.
 
 3. List of Tasks
 *Login
