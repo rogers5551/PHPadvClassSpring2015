@@ -16,4 +16,19 @@ class emailTypeDB
             echo 'Email type added';
         }
     }
+    
+    public function displayEmailTypes($db)
+    {
+        $stmt = $db->prepare("SELECT * FROM emailtype where active = 1");
+        if ($stmt->execute() && $stmt->rowCount() > 0) {
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+            foreach ($results as $value) {
+                echo '<p>', $value['emailtype'], '</p>';
+            }
+        } 
+        else {
+            echo '<p>No Data</p>';
+        }
+    }
 }

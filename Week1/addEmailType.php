@@ -75,24 +75,7 @@ if ( $util->isPostRequest() ) {
          
          
     <?php 
-       
-    // lets get the database values and display them
-    $stmt = $db->prepare("SELECT * FROM emailtype where active = 1");
-    if ($stmt->execute() && $stmt->rowCount() > 0) {
-        /*
-         * There is fetchAll which gets all the values and
-         * fetch which gets one row.
-         */
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // results returns as a assoc array
-        // you can run the next line to see the variable
-        // var_dump($results)
-        foreach ($results as $value) {
-            echo '<p>', $value['emailtype'], '</p>';
-        }
-    } else {
-        echo '<p>No Data</p>';
-    }
+        $emailTypeDB->displayEmailTypes($db);
     ?>
          
          
