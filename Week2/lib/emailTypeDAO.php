@@ -1,5 +1,6 @@
 <?php
 
+
 class emailTypeDAO implements IDAO
 {
     private $DB = null;

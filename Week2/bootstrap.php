@@ -1,4 +1,8 @@
 <?php
+/*
+ * This file allows you auto load classes
+ * without having to include them on the page. 
+ */
 function load_lib($class) {
     include 'lib/'.$class . '.php';
 };

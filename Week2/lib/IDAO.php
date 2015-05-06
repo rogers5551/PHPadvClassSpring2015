@@ -1,5 +1,6 @@
 <?php
 
+
 interface IDAO 
 {
     public function getById($id);

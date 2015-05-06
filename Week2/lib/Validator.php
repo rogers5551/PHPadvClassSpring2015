@@ -8,7 +8,7 @@
  * @author Gabriel Forti
  */
 class Validator {
-    
+
     /**
      * A method to check if an email is valid.
      *
@@ -19,6 +19,7 @@ class Validator {
     public function emailIsValid($email) {
         return ( is_string($email) && !empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) !== false );
     }
+
     /**
      * A method to check if the email type is valid.
      *
@@ -38,29 +39,8 @@ class Validator {
      *
      * @return boolean
      */
-    public function phoneIsValid($phone) {
-        return ( preg_match("/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/", $phone) );
-    }
-    
-    /**
-     * A method to check if a phone type is valid.
-     *
-     * @param {String} [$type] - must be a valid string
-     *
-     * @return boolean
-     */
-    public function phoneTypeIsValid($type) {
-        return ( is_string($type) && preg_match("/^[a-zA-Z]+$/", $type) );
-    }
-    
-    /**
-     * A method to check if a phone type is valid.
-     *
-     * @param {String} [$type] - must be a valid string
-     *
-     * @return boolean
-     */
     public function activeIsValid($type) {
         return ( is_string($type) && preg_match("/^[0-1]$/", $type) );
     }
+
 }
