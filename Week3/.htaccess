@@ -1,0 +1,7 @@
+RewriteEngine on
+#The first prevents existing directories with the !-d flag and the second with !-f means ignore existing files.
+# [QSA] = Query String Append flag
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([a-zA-Z0-9]+)$ index.php?page=$1 [QSA]
+RewriteRule ^([a-zA-Z0-9]+)/$ index.php?page=$1 [QSA]
