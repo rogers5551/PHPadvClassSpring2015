@@ -28,11 +28,11 @@
         <br />
         <br />
         Resource for endpoint:<br />
-        <input name="resource" value="phonetypes/" />
+        <input name="resource" value="emailtypes/" />
          <br />
         <br />
         Data(optional):<br />        
-        <textarea name="data">phonetypeid=7&Phonetype=po56stest&Active=1</textarea>
+        <textarea name="data">emailtypeid=7&Emailtype=po56stest&Active=1</textarea>
         <br />
         <br />
         <button>Make Call</button>
