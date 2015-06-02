@@ -21,26 +21,26 @@ include './bootstrap.php';
             "DB_USER"=>'root',
             "DB_PASSWORD"=>''
         );
-
+        //Calls db
         $pdo = new DB($dbConfig);
         $db = $pdo->getDB();
-       
+        //initializes and filters appropriate data
         $system = filter_input(INPUT_POST, 'system');
         $active = filter_input(INPUT_POST, 'active');
         $systemid = filter_input(INPUT_POST, 'systemid');
-        
+        //initializes helpers
         $util = new Util();
         $validator = new Validator();
         $systemDAO = new SystemDAO($db);
         
-        
+        //sends appropriate data to the model
         $systemModel = new SystemModel();
         $systemModel->setActive($active);
         $systemModel->setSystem($system);
 
         
         $systemService = new SystemService($db, $util, $validator, $systemDAO, $systemModel);
-        
+        //saves the form
         $systemService->saveForm();
         
         

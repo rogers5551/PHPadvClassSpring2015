@@ -2,6 +2,7 @@
 
 include './bootstrap.php';
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,7 +11,7 @@ include './bootstrap.php';
     </head>
     <body>
         <?php
-        
+        //Checks if session variable is set... if it is not its kicks you out
         if(!isset($_SESSION['loggedin']))
         {
             header("Location: login.php");
@@ -24,26 +25,28 @@ include './bootstrap.php';
 
         $pdo = new DB($dbConfig);
         $db = $pdo->getDB();
-       
+        //initialize variables and filter their input
         $game = filter_input(INPUT_POST, 'game');
         $system = filter_input(INPUT_POST, 'system');
         $active = filter_input(INPUT_POST, 'active');
         $gameid = filter_input(INPUT_POST, 'gameid');
         $systemid = filter_input(INPUT_POST, 'systemid');
-        
+        //initializes helpers
         $util = new Util();
         $validator = new Validator();
+        //initiializes DAOs
         $gameDAO = new GameDAO($db);
         $systemDAO = new SystemDAO($db);
-        
+        //Sends appropriate data to model
         $gameModel = new GameModel();
         $gameModel->setActive($active);
         $gameModel->setGame($game);
+        $gameModel->setSystemid($systemid);
         $systems = $systemDAO->getAllRows();
 
         
         $gameService = new gameService($db, $util, $validator, $gameDAO, $gameModel);
-        
+        //Saves the form
         $gameService->saveForm();
         
         
