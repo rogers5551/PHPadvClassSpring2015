@@ -18,6 +18,11 @@ class Util {
         $_SESSION['loggedin'] = $value;
     }
     
+    public function logOut()
+    {
+        unset($_SESSION['loggedin']);
+    }
+    
     public function createLink($page, array $params = array()) {        
         return $page . '?' .http_build_query($params);
     }
