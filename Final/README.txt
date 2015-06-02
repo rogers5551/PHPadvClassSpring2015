@@ -24,7 +24,6 @@ CREATE TABLE IF NOT EXISTS `signup` (
   `active` tinyint(1) unsigned NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-
 INSTRUCTIONS:
 
-Start with login.php
+Start from any file between game-delete.php and system-update.php
